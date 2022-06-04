@@ -1,0 +1,613 @@
+/* == ALGEMEEN == */
+:root {
+    --goud-geel: rgb(205, 164, 0);
+    --goude-gloed:rgb(225, 193, 6);
+    --goude-gloed-afb:rgba(255, 225, 0, 0.45);
+    --donker-goud-geel: rgb(214, 165, 4);
+    --kakie-groen: #706845;
+    --licht-grijs: rgb(227, 227, 227);
+    --donker-grijs:rgb(191, 191, 191);
+    --grijs:rgb(216, 216, 216);
+    --achtergrond:rgb(5,5,5);
+    --text:rgb(53, 48, 44);
+    --groen:rgb(10, 108, 10);
+    --rood: rgb(148, 5, 5);
+}
+* {
+    font-family:'Goudy Old Style','Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: 0;
+}
+
+/*=> alle paginas*/
+p, address,q,table * {
+    text-align: center;
+    color: var(--text);
+    font-style: normal;
+}
+h1,h2 {
+    color: var(--goud-geel);
+    font-size: 1.87rem;
+    border-bottom: var(--goud-geel) 1px solid;
+    margin-bottom: 1rem;
+}
+table {
+    border-spacing: 0px;
+}
+th, .tableTitel {
+    font-weight: bold;
+    font-style: italic;
+    border-bottom: var(--goud-geel) 1px solid;
+}
+.tableTitel {
+    border: none;
+}
+th a {
+    font-style: italic;
+}
+td {
+    border-bottom: var(--text) 1px dashed;
+    padding: .25rem .5rem;
+}
+
+label {
+    display: block;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-style: italic;
+}
+input,textarea {
+    transition: box-shadow .75s, background-color .75s;
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    color: var(--text);
+    border-bottom:1px solid var(--goud-geel) ;
+}
+textarea {
+    border:1px solid var(--goud-geel) ;
+}
+input[type=text]:focus ,textarea:focus,input[type=email]:focus,input[type=password]:focus  {
+    box-shadow: 0 0 1.5rem var(--goude-gloed);
+    background-color: rgba(255, 255, 255, 0.277);
+}
+
+a p {
+    font-weight: normal;
+}
+a, .logout {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--goud-geel);
+    transition: text-shadow .75s;
+}
+img {
+    border-radius: 15px;
+}
+a img { 
+    transition: box-shadow .75s, background-color .75s;
+}
+a:hover img {
+    background-color: var(--goude-gloed-afb);
+    box-shadow: 0 0 1.5rem var(--goude-gloed)
+}
+a:hover,.logout:hover {
+    text-shadow: 0 0 1.5rem var(--goude-gloed);
+    color:var(--goude-gloed);
+}
+.logout {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+.logout:hover {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    border-bottom:1px solid var(--goud-geel) ;
+}
+.logout:active {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    border-bottom:1px dotted var(--goud-geel) ;
+}
+button, input[type=submit] {
+    display: block;
+    background-color: var(--licht-grijs);
+    border: solid 3px var(--goud-geel);
+    color: var(--text);
+    border-radius: 10px;
+    padding: .1rem .5rem;
+    transition: none;
+
+}
+button:hover, input[type=submit]:hover {
+    background-color: var(--grijs);
+}
+button.gedrukt,input[type=submit]:active,button:active {
+    border: solid 3px var(--donker-goud-geel);
+    background-color: var(--donker-grijs);
+}
+/*=> Algemenen layout*/
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 5rem auto 2rem;
+}
+
+header {
+    background-image: url("/assets/Elvis.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    display: grid;
+    background-color: var(--kakie-groen);
+    grid-template-columns: auto auto;
+    padding:0 5%;  
+    border-bottom: solid 3px var(--goud-geel);  
+}
+
+header a img {
+    border-radius:0 0 15px 15px;
+    align-self: center;
+    height: 4rem;
+    background-color: var(--goude-gloed);
+    padding: 2px 6px;
+}
+
+nav {
+    height:fit-content;
+    justify-self: right;
+    text-align: center;
+    background-color: var(--groen);
+}
+nav a, .logout {
+    font-size: 1.2rem;
+    margin: .1rem .3rem;
+    border-bottom:1px solid var(--goud-geel) ;
+}
+.vlag {
+    padding: 0.05rem 1rem 1.5rem 1rem;
+    clip-path:  polygon(0% 0%, 100% 0, 100% 60%, 50% 100%, 0 60%);
+}
+
+main {
+    background-color: rgb(250, 239, 227);
+    background-image: linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)), url("/assets/kaart.png");  
+    background-size: cover; 
+    background-position: center;
+}
+
+footer {
+    display: grid;
+    align-content: center;
+    background-color: var(--kakie-groen);
+    padding:0 13px; 
+}
+footer p {
+    text-align: left;
+    color: var(--grijs);
+    font-size: 0.75rem;
+}
+
+/* == HOME == */
+
+.home {
+    position: relative;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.home section {
+    margin: 1rem 0;
+    width: 80%;
+}
+.home section:first-of-type {
+    margin-bottom: .5rem;
+}
+.home .quiz {
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-content: center;
+}
+.home .quiz-item{
+    width: 85%;
+    margin-bottom: .5rem;
+    padding-left: 5%;
+    justify-self: left;
+}
+.home .quiz-item:nth-of-type(1) {
+    padding-right: 5%;
+    justify-self: right;
+}
+
+.home .quiz-item img{
+    width: 85%;
+}
+
+/* == QUIZ == */
+
+.quiz {
+    position: relative;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+}
+.quiz .top {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.quiz .top * {
+    background-color: var(--rood);
+    color: var(--licht-grijs);
+    height:fit-content;
+}
+.quiz .top .vlag {
+    padding-bottom: 1rem;
+}
+.quiz .vraag {    
+    margin-top:2.25rem;
+    grid-column: span 2;
+    align-self:end;
+    width: 80%;
+    font-size: 1.5rem;
+}
+.quiz q {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+.quiz #karakters,.quiz .favorite {
+    width: 80%;
+    padding-right: 5%;
+    justify-self: right;
+}
+.quiz button {
+    width: 80%;
+    margin: .25rem auto;
+}
+.quiz .goed {
+    background-color: var(--groen);
+    color: var(--licht-grijs);
+}
+.quiz .fout {
+    background-color: var(--rood);
+    color: var(--licht-grijs);
+}
+.quiz #films,.quiz .blacklist {
+    width: 80%;
+    padding-left: 5%;
+    justify-self: left;
+}
+.quiz .favorite, .quiz .blacklist {
+    align-self: end;
+}
+.quiz #volgende {
+    grid-column: span 2;
+    width: 75%;
+    height: 2rem;
+    font-size: 1.25rem;
+    align-self: start;
+}
+#reden{
+    display: inline-block;
+    overflow: hidden;
+    height: 0rem;
+    transition: height .4s;
+}
+#reden.zichtbaar {
+    height: 5.5rem;
+}
+#reden button {
+    width: 70%;
+}
+/* == RESULTAAT == */
+
+.resultaat {
+    text-align: center;
+    display: grid;
+    justify-items: left;
+    align-items: center;
+    grid-template-columns: 60% 40%;
+}
+.resultaat .text, .resultaat img {
+    margin: 7.5%;
+}
+.resultaat img {
+    justify-self: left;
+    background-color: gray;
+    height: 200px;
+}
+.resultaat .text {
+    justify-self: right;
+}
+.resultaat .text > p {
+    max-width: 500px;
+}
+.resultaat .text * {
+    margin: .5rem 0;
+}
+.resultaat .text .score {
+    font-weight: bold;
+}
+
+
+/* == CONTACT LOGIN REGISTER == */
+.error {
+    color: var(--rood);
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: .5rem;
+}
+main.error {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0;
+}
+main.error h1 {
+    font-size: 3rem;
+    border: none;
+}
+input.error {
+    color: black;
+    font-weight: normal;
+    font-style: normal;
+    margin: .75rem;
+    border-bottom: var(--rood) 1px solid;
+}
+.contact, .login, .register {
+    position: relative;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: .75rem;
+}
+.contact > *, .contact > *, .login > *, .register > * {
+    width: 80%;
+}
+
+.contact .contacteer form *, .login section form * , .register section form * {
+    margin: 0 auto;
+    margin-bottom: 0.75rem;
+}
+/* == FAVORITE,BLACK == */
+
+.favorite, .blacklist {
+    position: relative;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.favorite > *, .blacklist > * {
+    width: 80%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.favorite .tableTitel, .blacklist .tableTitel {
+    display: none;
+}
+.favorite h1 , .blacklist h1 {
+    width: 100%;
+}
+.favorite table, .blacklist table {
+    margin: .5rem 0;
+    width: 90%;
+}
+.favorite table tr td:first-of-type,.favorite table tr th:first-of-type {
+    width: 50%;
+}
+.favorite table tr td,.favorite table tr th {
+    width: 25%;
+}
+.blacklist .a {
+    text-decoration: none;
+    color: var(--goud-geel);
+    transition: text-shadow .75s;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    margin: 0;
+}
+.blacklist table td a {
+    display: block;
+}
+.blacklist .a:hover {
+    text-shadow: 0 0 1.5rem var(--goude-gloed);
+    color:var(--goude-gloed);
+}
+
+.blacklist table tr td,.blacklist table tr th {
+    width: 40%;
+}
+.blacklist table tr td:nth-of-type(2),.blacklist table tr th:nth-of-type(2) {
+    width: 10%;
+}
+.blacklist table tr td:nth-of-type(3),.blacklist table tr th:nth-of-type(3) {
+    width: 25%;
+}
+.blacklist table tr td:nth-of-type(4),.blacklist table tr th:nth-of-type(4) {
+    width: 25%;
+}
+
+/*media queries*/
+@media only screen and (max-width: 1024px) {
+    /*=> Algemenen layout*/
+    header {
+        position: relative;
+        grid-template-columns: auto;
+        justify-content: center;
+        padding: 0;
+    }
+    header section:first-of-type  {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    /*=> Algemenen layout*/
+    body {
+        grid-template-rows: 6rem auto 3rem;
+    }
+    header {
+        display: inline-block;
+        grid-template-columns: auto;
+        justify-content: center;
+        padding: 0;
+        overflow: visible;
+        z-index: 87;
+    }
+    header nav {
+        display: grid;
+        justify-items: center;
+    }
+    header .vlag *{
+        padding: 0;
+        display: block;
+        font-size: 0rem;
+        margin: 0;
+        transition-delay: .5s;
+        transition: font-size 1s;
+    }
+    header .vlag::after{
+        content: 'Menu';
+        padding-right: 5px;
+        font-style: italic;
+        color: var(--goud-geel);
+    }
+    header .vlag:hover *,header .vlag:active *{
+        margin: 0.1rem 0.3rem;
+        width: fit-content;
+        font-size: 1.2rem;
+    }
+    footer {
+        padding-right: 0;   
+    }
+    footer p {
+        font-size: 0.6rem;
+    }
+    /* == HOME == */
+
+    .home .quiz {
+        margin: 1rem auto;
+        display: grid;
+        grid-template-columns: auto ;
+        align-content: center;
+    }
+    .home .quiz-item{
+        width: 100%;
+        padding: 0;
+        justify-self: center;
+    }
+    .home .quiz-item:nth-of-type(1) {
+        padding: 0;
+        justify-self: center;
+    }
+    /* == QUIZ == */
+    .quiz {
+        grid-template-columns: auto;
+    }
+    .quiz .vraag {
+        margin-bottom: .5rem;
+        grid-column: span 1;
+    }
+    .quiz #karakters,.quiz .favorite {
+        padding: 0;
+        margin-top: .5rem;
+        justify-self: center;
+    }
+    .quiz #films {
+        margin-top: .5rem;
+    }
+    .quiz .blacklist,.quiz #films {
+        padding: 0;
+        justify-self: center;
+    }
+    
+    .quiz button {
+        margin: .75rem auto;
+    }
+    .quiz #volgende {
+        grid-column: span 1;
+        margin: 1rem 0;
+    }
+    /* == RESULTAAT == */
+
+    .resultaat {
+        justify-items: center;
+        grid-template-columns: auto;
+    }
+    .resultaat img {
+        justify-self: center;
+    }
+    .resultaat .text {
+        justify-self: center;
+    }
+    /* == FAVORITE,BLACK == */
+
+    .favorite > *, .blacklist > * {
+        width: 90%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+    .favorite table, .blacklist table {
+        width: 90%;
+    }
+    .blacklist .tableTitel, .favorite .tableTitel {
+        display: inline;
+    }
+    .blacklist table tr td,.blacklist table tr th,.favorite table tr td,.favorite table tr th { 
+        padding: .25rem 0;
+        display: inline-block !important;
+    }
+    .blacklist table tr th,.favorite table tr th {
+        display: none !important;
+    }
+    .blacklist table tr td:nth-of-type(1),.favorite table tr td:nth-of-type(1) {
+        width: 100%;
+        border: none;
+    }
+    .blacklist table tr td:nth-of-type(2),.favorite table tr td:nth-of-type(2) {
+        width: 100%;
+        border: none;
+    }
+    .blacklist table tr td:nth-of-type(3) {
+        width: 100%;
+        border: none;
+    }
+    .favorite table tr td:nth-of-type(3),.favorite table tr th:nth-of-type(3) {
+        display: inline-block !important;
+        width: 100%;
+    }
+    .blacklist table tr td:nth-of-type(4),.blacklist table tr th:nth-of-type(4) {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:320px) {
+    /*=> Algemenen layout*/
+    body {
+        grid-template-rows: 7.5rem auto 3rem;
+    }   
+}

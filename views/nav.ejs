@@ -1,0 +1,22 @@
+<section>
+    <a href="/home">
+        <img src="/assets/logo.png" alt="Logo website">
+    </a>
+</section>
+<nav class="vlag">
+    <a href="/home">Home</a>
+    <a href="/quiz1">Normaal</a>
+    <a href="/quiz2">Survival</a>
+
+    <% if (login) {%>
+        <a href="/favorites">Favorites</a>
+        <a href="/blacklists">Blacklists</a>
+        <form action="/logout?_method=DELETE" method="POST" style="display:inline-block">
+            <button class="logout" type="submit">Log Out</button>
+        </form>
+    <%}else {%>
+        <a href="/login">Log in</a>
+        <a href="/register">Register</a>
+    <%}%>
+    <a href="/contact">Contact</a>
+</nav>

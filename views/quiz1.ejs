@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/vragen.js" defer></script>
+    <script src="js/mode1.js" defer></script>
+    <%if (login){%>
+        <script src="js/blacklist.js" defer></script>
+        <script src="js/favorite.js" defer></script>
+        <script>const black = '<%=blacklist%>'</script>
+        <%}%>
+        <script>const login = '<%=login%>' == 'true';</script>
+        <link rel="icon" href="assets/icon.png" type="image/icon type">
+</head>
+
+<body>
+    <header>
+        <%- include('nav.ejs') %>
+    </header>
+    <main class="quiz">
+        <section class="top">
+            <p id="score" class="vlag">score: 87</p>
+            <p id="aantal" class="vlag">5/10</p>
+        </section>
+        <section class="vraag">
+            <q id="filmQuote"></q>
+        </section>
+        <%if (login){%>
+            <section class="favorite">
+                <button onclick="quizKnopFavorite()" id="favorite">Favorite</button>
+            </section>
+        <%}%>
+        <%if (login){%>
+            <section class="blacklist">
+                <button type="button" class="blacklistKnop">Blacklist Quote</button>
+                <section id="reden">
+                    <textarea id="areaReden"></textarea>
+                    <button onclick="quizKnopBlacklist()">Blacklist</button>
+                </section>
+            </section>
+        <%}%>
+        <section id="karakters">
+            <h1>Karakters</h1>
+            <button type="button" id="kar0">Character 1</button>
+            <button type="button" id="kar1">Character 2</button>
+            <button type="button" id="kar2">Character 3</button>
+        </section>
+        <section id="films">
+            <h1>Films</h1>
+            <button type="button" id="FOTR">The FellowShip of the Ring</button>
+            <button type="button" id="TTT">The Two Towers</button>
+            <button type="button" id="TROTK">The Return of the King</button>
+        </section>
+        <button type="button" id="volgende">volgende</button>
+    </main>
+    <footer>
+        <%- include('footer.ejs') %>
+    </footer>
+</body>
+
+</html>

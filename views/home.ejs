@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home pagina</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/icon.png" type="image/icon type">
+</head>
+
+<body>
+
+    <header>
+        <%- include('nav.ejs') %>
+    </header>
+    <main class="home">
+        <section>
+            <h1>Welkom in Midden-aarde</h1>
+            <p>Volg mee het avontuur van Frodo en Sam met onze quizen.
+                Volg dan onze quiz en bekijk hoe goed jij bent in de boeken en de films.
+                Reis mee in de wereld van J. R. R. Tolkin. Ben jij ook een Midden-Aarde kenner?
+                Of ben jij al een Lord of the Rings fan? Probeer dan onze Survival quiz.
+                Wil jij een Lord of the Rings kenner worden dan kan jij onze Normal quiz eens uitproberen.
+                Wij hopen dat jullie de quiz leuk vinden.</p>
+        </section>
+        <section class="quiz">
+            <article class="quiz-item">
+                <a href="/quiz1"><img src="/assets/quiz1.jpg" alt="">
+                    <h1>Normaal</h1>
+                    <p>Bij normal mode wordt er een introductie gemaakt over de quiz.
+                        Er zullen 10 vragen komen met elkes een quote en twee multi-choice antwoorden één voor de
+                        karakter en de andere voor de film waar het in voorkomt.
+                        Telkens dat jij juist hebt verdin jij punten elke juiste multi-choice antwoord krijg jij één
+                        punt.
+                        Bedoeling is om zo veel mogelijk punten te krijgen.</p>
+                </a>
+            </article>
+            <article class="quiz-item">
+                <a href="/quiz2"><img src="/assets/optie1-sudden-dead.png" alt="">
+                    <h1>Survival</h1>
+                    <p>In survival mode wordt er bekijken hoe goed je Lord of the Rings kent.
+                        Zoals bij de andere quiz worden er quotes getoont van de films en je moet raden van welke film
+                        en karakter die is.
+                        Per keer dat je een fout beantwoordt beindigd de quiz onmiddelijk.
+                        Aan het einde zal jij jouw score en highscore zien.</p>
+                </a>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <%- include('footer.ejs') %>
+    </footer>

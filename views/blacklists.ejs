@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/blacklist.js" defer></script>
+    <title>Blacklists</title>
+    <link rel="icon" href="assets/icon.png" type="image/icon type">
+</head>
+
+<body>
+    <header>
+        <%- include('nav.ejs') %>
+    </header>
+    <main class="blacklist">
+        <section>
+            <h1>Blacklist</h1>
+            <%if (blacklist.length > 0){%>
+            <table>
+                <tr>
+                    <th>Quote</th>
+                    <th>Naam karakter</th>
+                    <th>Reden</th>
+                    <th></th>
+                </tr>
+                <% blacklist.forEach(i=>{ %>
+                    <tr>
+                        <td>
+                            <span class="tableTitel">Quote: </span><q><%= i.dialog %></q>
+                        </td>
+                        <td>
+                            <span class="tableTitel">Naam: </span><%= i.name %>
+                        </td>
+                        <td class="aanpassenreden" id='<%=i.id%>'>
+                            <span class="tableTitel">Reden: </span><%= i.reden %>     
+                        </td>
+                        <td>
+                            <a onclick="removeBlacklist('<%=i.id%>')">Verwijderen</a> 
+                            <a class="blacklistKnop">Reden aanpassen</a>
+                            <form id="reden" action="/BlacklistRedenAanpassen" method="post" >
+                                <input type="text" id="pReden" name="id" style="display: none;" value="<%=i.id%>">
+                                <textarea id="nieuweReden" name="reden"><%= i.reden %></textarea>
+                                <button class="a" type="submit">Submit</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <%}else {%>
+                    <p>Er is geen blacklist</p>
+                    <%}%>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <%- include('footer.ejs') %>
+    </footer>
+</body>
+
+</html>

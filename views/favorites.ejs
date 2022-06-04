@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/favorite.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Favorites</title>
+    <link rel="icon" href="assets/icon.png" type="image/icon type">
+</head>
+
+<body>
+    <header>
+        <%- include('nav.ejs') %>
+    </header>
+    <main class="favorite">
+        <section>
+            <h1>Favoriten</h1>
+            <%if (Favorites.length > 0){%>
+            <table>
+                <tr>
+                    <th>Quote</th>
+                    <th>Naam karakter</a></th>
+                    <th><a onclick="afdrukken()">Afdrukken</a></th>
+                </tr>
+                <%for (let i = 0; i < Favorites.length; i++) {%>
+                <tr id="<%=Favorites[i].id%>">
+                    <td><span class="tableTitel">Quote: </span><q><%=Favorites[i].qoute%></q></td>
+                    <td><span class="tableTitel">Naam: </span><a href="<%=Favorites[i].url%>"><%=Favorites[i].naam%></a></td>
+                    <td><a onclick="removeFavoriteKnop('<%=Favorites[i].id%>')">Verwijderen</a></td>
+                </tr>
+                <%}%>
+            </table>
+            <%}else {%>
+                <p>Er is geen favorite</p>
+                <%}%>
+        </section>
+    </main>
+    <footer>
+        <%- include('footer.ejs') %>
+    </footer>
+</body>
+
+</html>

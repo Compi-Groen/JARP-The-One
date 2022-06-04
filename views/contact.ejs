@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="icon" href="assets/icon.png" type="image/icon type">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body id="grid_contact">
+    <header>
+        <%- include('nav.ejs') %>
+    </header>
+    <main class="contact">
+        <section class='contacteer'>
+            <h1>Contacteer ons</h1>
+            <form action="">
+                <label for="naam">Naam:</label>
+                <input type="text" name="naam" id="naam">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                <label for="bericht"></label>
+                <textarea name="bericht" id="bericht" cols="20" rows="5"></textarea>
+                </br>
+                <input type="submit" value="verzenden">
+            </form>
+        </section>
+        <section>
+            <h2>Contact info</h2>
+            <address>
+                Naam: Jarno Dierckx <br>
+                Email adress: <a href="mailto:s131657@ap.be">s131657&#64;ap.be</a><br>
+                Naam: Priscilla Van der Schoot <br>
+                Email adress: <a href="mailto:s112787@ap.be">s112787&#64;ap.be</a><br>
+                Naam: Arno Groenweghe <br>
+                Email adress: <a href="mailto:s126690@ap.be">s126690&#64;ap.be</a> <br>
+                Naam: Ralph Geeraerd <br>
+                Email adress: <a href="mailto:s129448@ap.be">s129448&#64;ap.be</a>
+            </address>
+        </section>
+    </main>
+    <footer>
+        <%- include('footer.ejs') %>
+    </footer>
+</body>
+
+</html>

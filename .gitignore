@@ -1,0 +1,9 @@
+node_modules/
+package.json
+package-lock.json
+tsconfig.json
+mongodb_test/
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env

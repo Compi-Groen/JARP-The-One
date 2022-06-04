@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/js/favorite.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Log in</title>
+  <link rel="icon" href="assets/icon.png" type="image/icon type">
+</head>
+
+<body>
+  <header>
+    <%- include('nav.ejs') %>
+  </header>
+  <main class="login">
+    <section>
+      <h1>Login</h1>
+      <% if (messages.error) { %>
+        <p class="error"><%= messages.error %></p>
+          <% } %>
+            <form action="/login" method="POST">
+              <div>
+                <label for="email">Email</label>
+                <% if (messages.error) { %>
+                  <input class="error" type="email" id="email" name="email" required>
+                <% }else {%>
+                  <input type="email" id="email" name="email" required>
+                <% } %>
+              </div>
+              <div>
+                <label for="password">Password</label>
+                <% if (messages.error) { %>
+                <input class="error" type="password" id="password" name="password" required>
+                <% }else {%>
+                  <input type="password" id="password" name="password" required>
+                <% } %>
+              </div>
+              <input type="submit" value="Login">
+            </form>
+            <a href="/register">Register</a>
+    </section>
+  </main>
+  <footer>
+    <%- include('footer.ejs') %>
+  </footer>
+</body>
+
+</html>
